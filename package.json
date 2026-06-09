@@ -1,0 +1,6 @@
+{
+  "name": "cognitiveux-assignment",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
