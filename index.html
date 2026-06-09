@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CognitiveUX Assignment — Interactive Web Components</title>
+  <meta name="description" content="Three interactive web components: ICICI carousel, YouTube chapter player, and lead capture form." />
+  <meta name="robots" content="noindex" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/task1.css" />
+  <link rel="stylesheet" href="css/task2.css" />
+  <link rel="stylesheet" href="css/task3.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="site-header__inner">
+      <a href="#" class="site-logo" aria-label="CognitiveUX Assignment Home">
+        CognitiveUX&nbsp;/&nbsp;Assignment
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Task 1 - Exclusive Privileges Carousel -->
+    <section class="task-section" id="task1" aria-labelledby="task1-heading">
+      <div class="task-section__inner">
+
+        <div class="task-section__badge" aria-label="Task number 1">
+          Task 1
+        </div>
+
+        <section class="exclusive" aria-labelledby="exclusive-heading">
+          <h2 id="exclusive-heading">Exclusive Privileges</h2>
+          <!-- carousel injected by task1.js -->
+          <div id="exclusive-privileges" role="region" aria-label="Exclusive Privileges offers carousel"></div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- Task 2 - Video Chapters -->
+    <section class="task-section" id="task2" aria-labelledby="task2-heading">
+      <div class="task-section__inner">
+
+        <div class="task-section__badge" aria-label="Task number 2">
+           Task 2
+        </div>
+
+        <!-- Video Carousel -->
+        <div class="video-carousel" id="video-chapters-section" role="region"
+             aria-label="Video chapters carousel" aria-roledescription="carousel">
+
+          <div class="video-carousel__viewport" aria-live="polite">
+            <div class="video-carousel__track" aria-label="Video slides"></div>
+          </div>
+
+          <div class="video-carousel__nav" role="group" aria-label="Carousel controls">
+            <div class="video-carousel__arrow">
+              <button class="video-carousel__btn" id="vc-prev-btn" type="button" aria-label="Previous video">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+            </div>
+            <div class="video-carousel__dots" role="tablist" aria-label="Video navigation dots"></div>
+            <div class="video-carousel__arrow">
+              <button class="video-carousel__btn" id="vc-next-btn" type="button" aria-label="Next video">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Detector -->
+        <div class="chapter-detector" role="region" aria-labelledby="chapter-detector-heading">
+          <h3 class="chapter-detector__title" id="chapter-detector-heading">
+            <span>Automated Chapter Generator</span>
+          </h3>
+          <p class="chapter-detector__desc">
+            Paste any YouTube URL below to automatically fetch and parse chapter
+            timestamps from the video description using the YouTube Data API.
+          </p>
+
+          <div class="chapter-detector__form" role="group" aria-label="Chapter detection form">
+            <label for="chapter-url-input" class="visually-hidden">YouTube video URL</label>
+            <input type="url" id="chapter-url-input" class="chapter-detector__input"
+                   placeholder="https://www.youtube.com/watch?v=kqtD5dpn9C8"
+                   autocomplete="off" spellcheck="false" />
+            <button type="button" id="chapter-detect-btn" class="chapter-detector__submit">
+              Detect Chapters
+            </button>
+          </div>
+
+          <p class="chapter-detector__hint">Try this demo: <a href="#" id="chapter-demo-link" class="chapter-detector__demo-link">https://www.youtube.com/watch?v=kqtD5dpn9C8</a></p>
+
+          <div class="chapter-detector__status" role="status" aria-live="polite" aria-atomic="true"></div>
+
+          <div class="chapter-detector__output" aria-label="Generated chapter code">
+            <p class="chapter-detector__output-label">Generated Code</p>
+            <pre class="chapter-detector__code" tabindex="0"></pre>
+            <button type="button" class="chapter-detector__copy-btn">Copy Code</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Task 3 - Lead Capture Form -->
+    <section class="task-section" id="task3" aria-labelledby="task3-heading">
+      <div class="task-section__inner">
+
+        <div class="task-section__badge" aria-label="Task number 3">
+          Task 3
+        </div>
+
+        <!-- Timer -->
+        <div class="lead-timer-bar" aria-live="polite" aria-label="Seconds until form appears">
+          <span>Form appears after</span>
+          <span class="lead-timer-bar__count" id="lead-timer-count">6</span>
+          <span>more second(s) of watch time</span>
+        </div>
+
+        <!-- Video + Overlay -->
+        <div class="lead-video-wrapper" style="margin-top: 16px;">
+
+          <div class="lead-video-embed">
+            <div id="yt-lead-player"></div>
+          </div>
+
+          <!-- Lead Form Overlay -->
+          <div class="lead-form-overlay" id="lead-form-overlay" role="dialog"
+               aria-modal="true" aria-labelledby="lead-form-title" aria-describedby="lead-form-subtitle">
+
+            <button class="lead-form-dismiss" id="lead-dismiss-btn" type="button" aria-label="Close form">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            <div class="lead-form-card" role="document">
+
+              <div class="lead-form-header">
+                <div class="lead-form-eyebrow">Limited Time Offer</div>
+                <h3 class="lead-form-title" id="lead-form-title">Interested? Let's Connect!</h3>
+                <p class="lead-form-subtitle" id="lead-form-subtitle">
+                  Get exclusive access and updates directly in your inbox.
+                </p>
+              </div>
+
+              <form class="lead-form" id="lead-capture-form" novalidate aria-label="Lead capture form">
+
+                <div class="lead-form-field">
+                  <label class="lead-form-label" for="lead-name">Full Name</label>
+                  <input class="lead-form-input" type="text" id="lead-name" name="name"
+                         placeholder="Harshit Jain" autocomplete="name"
+                         aria-required="true" aria-describedby="lead-name-error" />
+                  <span class="lead-form-error-msg" id="lead-name-error" role="alert"></span>
+                </div>
+
+                <div class="lead-form-field">
+                  <label class="lead-form-label" for="lead-email">Email Address</label>
+                  <input class="lead-form-input" type="email" id="lead-email" name="email"
+                         placeholder="you@example.com" autocomplete="email"
+                         aria-required="true" aria-describedby="lead-email-error" />
+                  <span class="lead-form-error-msg" id="lead-email-error" role="alert"></span>
+                </div>
+
+                <div class="lead-form-field">
+                  <label class="lead-form-label" for="lead-phone">Phone Number</label>
+                  <input class="lead-form-input" type="tel" id="lead-phone" name="phone"
+                         placeholder="+91 98765 43210" autocomplete="tel"
+                         aria-required="true" aria-describedby="lead-phone-error" />
+                  <span class="lead-form-error-msg" id="lead-phone-error" role="alert"></span>
+                </div>
+
+                <button type="button" class="lead-form-submit" id="lead-submit-btn">
+                  Get Exclusive Access →
+                </button>
+
+              </form>
+
+              <!-- Success state -->
+              <div class="lead-form-success" id="lead-form-success" aria-live="polite">
+                <div class="lead-form-success__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h3 class="lead-form-success__title">You're In! 🎉</h3>
+                <p class="lead-form-success__msg">Thanks for reaching out. We'll be in touch soon.</p>
+                <button type="button" class="lead-form-success__resume" id="lead-resume-btn">
+                  Resume Watching ▶
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/config.js"></script>
+  <script defer src="js/task1.js"></script>
+  <script defer src="js/task2.js"></script>
+  <script defer src="js/task3.js"></script>
+
+</body>
+</html>

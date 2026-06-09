@@ -1,0 +1,93 @@
+/* reset.css - CSS reset and design tokens */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* colors - black/yellow/white */
+  --color-bg:            #0a0a0a;
+  --color-surface:       #141414;
+  --color-surface-2:     #1e1e1e;
+  --color-border:        #2a2a2a;
+  --color-text-primary:  #ffffff;
+  --color-text-secondary:#9a9a9a;
+  --color-accent:        #facc15;
+  --color-accent-light:  #fde047;
+  --color-accent-glow:   rgba(250, 204, 21, 0.2);
+
+  /* ICICI theme - also black/yellow */
+  --icici-bg:            #0a0a0a;
+  --icici-card-bg:       #141414;
+  --icici-orange:        #facc15;
+  --icici-text:          #ffffff;
+  --icici-text-muted:    #9a9a9a;
+
+  /* typography */
+  --font-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* spacing */
+  --space-xs:   0.25rem;
+  --space-sm:   0.5rem;
+  --space-md:   1rem;
+  --space-lg:   1.5rem;
+  --space-xl:   2rem;
+  --space-2xl:  3rem;
+  --space-3xl:  4rem;
+
+  /* radii */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  /* transitions */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+
+  /* shadows */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:   0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:   0 8px 32px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 24px rgba(250,204,21,0.25);
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol { list-style: none; }
+
+input, textarea, select {
+  font-family: inherit;
+}
