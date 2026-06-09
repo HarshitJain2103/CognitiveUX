@@ -1,8 +1,11 @@
 var fs = require('fs');
 
-var key = process.env.YOUTUBE_API_KEY || 'YOUR_KEY_HERE';
+var key = process.env.YOUTUBE_API_KEY || '';
 
-var content = 'var APP_CONFIG = {\n  YOUTUBE_API_KEY: \'' + key + '\'\n};\n';
+console.log('YOUTUBE_API_KEY found:', key ? 'yes (' + key.length + ' chars)' : 'NO - env var missing!');
 
-fs.writeFileSync('js/config.js', content);
-console.log('config.js generated');
+var content = 'var APP_CONFIG = {\n  YOUTUBE_API_KEY: ' + JSON.stringify(key) + '\n};\n';
+
+fs.writeFileSync('js/config.js', content, 'utf8');
+console.log('js/config.js written successfully');
+console.log('Contents:', content);
